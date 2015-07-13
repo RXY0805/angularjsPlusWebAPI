@@ -1,22 +1,33 @@
 # angularjsPlusWebApi
 entity framework code first PLUS web api PLUS angularjs
 
-What is the site for
+This is my Angularjs SPA Demo.
 
-Build a Single Page Application (SPA) DEMO with ASP.NET Web API and Angular.js
+Database: SQL-SERVER express 2014
 
-Demo Features
+Backend:  Entity Framework code first
+          Web API 2.0 RESTful service
+          object model
 
-Web API 2.0 RESTful service
-Angularjs controller ajax call web api for data manipulation
-Asynchronously upload file
-Backend
+Frontend: Angularjs framework
+          Bootstrap
+          ng-file-upload
+          
+There are 4 objects in this demo.
+    1. Group
+    2. Nation
+    3. Match
+    4. PlayedMatch
+    
+Each group has 4 nations and you could add or update nation information.
 
-MS SQL SERVER Database
-Web api
-Entity Framework Code First
-Frontend
+Each nation could has 3 matches and nations were awarded three points for a win and one for a draw.
 
-Angularjs
-Bootstrap
-ng-file-upload
+The related matches will be removed while doing nation deleting operation.
+
+
+
+          
+          
+
+
