@@ -1,0 +1,15 @@
+﻿
+<form name="uploadImageForm">
+    this is upload page
+    <div>
+        <input type="file" ngf-select ng-model="vm.files" required>
+
+        <img style="float: left; width: 100px; height: 90px; padding-right: 10px;"
+             ngf-src="vm.files[0]" ngf-default-src="{{vm.defaultFlagUrl}}" class="thumb">
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-disabled="uploadImageForm.$invalid" ng-click="vm.uploadFile(vm.files[0])">Submit</button>
+            <button class="btn btn-warning" ng-click="vm.cancel()">Cancel</button>
+        </div>
+    </div>
+   
+</form>

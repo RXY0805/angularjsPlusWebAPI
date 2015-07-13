@@ -1,0 +1,34 @@
+﻿<!--<div>
+    this is upload page
+    <div>
+        this is upload page
+    </div>
+    <div>
+        this is upload page
+    </div>
+    <div>
+        this is upload page
+    </div>
+    <div>
+        <button class="btn btn-info" ng-click="vm.cancel()">Close</button>
+    </div>
+</div>-->
+
+<form name="uploadImageForm">
+    <div class="modal-header">
+        upload  2016
+        <div class="modal-body">
+
+            <input type="file" ng-file-select ng-model="picFile" name="file" accept="image/*"
+                   ng-file-change="vm.generateThumb(picFile[0], $files)" required>
+
+            <img style="float: left; width: 100px; height: 90px; padding-right: 10px;"
+                 ng-show="picFile[0].dataUrl != null" ng-src="{{picFile[0].dataUrl}}" class="thumb">
+
+            <div class="modal-footer">
+                <!--<button class="btn btn-primary" ng-disabled="uploadImageForm.$invalid" ng-click="vm.uploadPic(picFile)">Submit</button>-->
+                <button class="btn btn-warning" ng-click="vm.cancel()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>

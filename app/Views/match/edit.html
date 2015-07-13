@@ -1,0 +1,29 @@
+﻿<form role="form" name="matchForm" class="form-horizontal" ng-controller="matchController as vm">
+
+    <h2>new match here</h2>
+    <div class="form-group">
+        <label>Team:</label> {{vm.FirstTeam.Name}}
+        <!--<select ng-model="vm.FirstTeam.NationID"  ng-options="f.NationID as f.Name for f in vm.nationList"></select>-->
+    </div>
+    <div class="form-group">
+        <label>score:</label>
+        <input ng-model="vm.FirstTeam.Score" type="number" max="99" min="0" required />
+
+    </div>
+    <div class="form-group">
+        <label>Team:</label>
+        <select ng-model="vm.SecondTeam.NationID"   ng-options="f.NationID as f.Name for f in vm.oppositeTeamList"></select>
+    </div>
+    <div class="form-group">
+        <label>score:</label>
+        <input ng-model="vm.SecondTeam.Score" type="number" max="99" min="0" required />
+    </div>
+    <div class="form-group">
+        <label>date:</label>
+        <datepicker  ng-model="vm.match.MatchDate"></datepicker>
+        <!--<input type="text"  />-->
+    </div>
+    <div>
+    </div>
+    <button ng-click="vm.save()" type="submit" ng-disabled="matchForm.$invalid" class="btn btn-primary">Save match</button>
+</form>

@@ -1,0 +1,74 @@
+﻿<div ng-controller="groupController as vm">
+    <a class="btn btn-default btn-sm" ng-repeat="g in vm.groupList" ng-class="{'btn-primary': g.GroupID==vm.selectedGroupID }" ng-click="vm.selectGroup(g.GroupID)">
+        <!--ng-class="{blue:g.GroupID=vm.selectedGroupID}"-->
+        {{g.Title}}
+    </a>
+    <button type="button" ng-show="(vm.filtered==null||vm.filtered.length<4)&&vm.selectedGroupID>0" ng-click="vm.newNation()" class="btn btn-info">Team ++</button>
+    
+    <table style="width: auto;" class="table table-striped">
+        <thead>
+            <tr>
+                <th class="col-md-6">Team</th>
+                <th class="col-md-1"><i class="glyphicon glyphicon-star"></i>Score</th>
+                <th class="col-md-1">Win</th>
+                <th class="col-md-1">Draw</th>
+                <th class="col-md-1">Lost</th>
+                <th class="col-md-1">G+</th>
+                <th class="col-md-1">G-</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="n in vm.filtered=(vm.nationList|filter:vm.groupFilterFn|orderBy:['-Points','-GoalCount'])">
+                <td>
+                    <a ng-click="vm.nationEdit(n.NationID)"><img class="img-rounded" style="margin-right:20px" width="60" height="48" ng-src="{{vm.flagPath+n.FlagUrl}}"></a> 
+                    <a ng-click="vm.nationEdit(n.NationID)" style="margin-right:20px">{{n.Name}}</a>
+                    <a ng-click="vm.showDetail(n.NationID)">detail</a>
+                    <div ng-if="n.NationID==vm.selectedNationID">
+                        <div ng-show="vm.nationMatchList.length>0">
+                            <h4>Played Matches detail:</h4>
+                        </div>
+                        <div ng-show="vm.nationMatchList.length==0">
+                            <h4>No match</h4>
+                        </div>
+                        <div ng-repeat="nationMatch in vm.nationMatchList">
+                            <div class="row">
+                               <br/>
+                                <div ng-repeat="m in current=(vm.matchList|filter:{ MatchID: nationMatch.MatchID})">
+                                    <div class="col-md-3" ng-if="$even">
+                                        {{m.Match.MatchDate| date:'shortDate'}}
+                                    </div>
+                                    <div class="col-md-3" ng-if="$even">
+                                        <img class="img-circle" width="40" height="30" ng-src="{{vm.flagPath+m.Nation.FlagUrl}}"> <strong>{{m.Score}}</strong> 
+                                    </div>
+                                    <div class="col-md-3" ng-if="$odd">
+                                        <strong>{{m.Score}}</strong>  <img class="img-circle" width="40" height="30" ng-src="{{vm.flagPath+m.Nation.FlagUrl}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" ng-click="vm.newMatch()" ng-show="vm.nationMatchList.length<3 && vm.filtered.length>1" class="btn btn-success">Match ++</button>
+                    </div>
+                    
+                </td>
+                <td>
+                   <strong> {{n.Points }}</strong>
+                </td>
+                <td>
+                    {{n.WinCount }}
+                </td>
+                <td>
+                    {{n.DrawCount  }}
+                </td>
+                <td>
+                    {{n.LostCount   }}
+                </td>
+                <td>
+                    {{n.GoalCount   }}
+                </td>
+                <td>
+                    {{n.LostGoalCount    }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
