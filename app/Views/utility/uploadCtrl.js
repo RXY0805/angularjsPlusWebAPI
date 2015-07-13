@@ -1,12 +1,13 @@
 ﻿(function () {
     'use strict';
     angular.module('fifa14app').controller('uploadController',uploadController);
-    uploadController.$inject = ['$modalInstance', '$http', 'Upload', '$timeout','folderName'];
+    uploadController.$inject = ['$modalInstance', '$http', 'Upload','commonFactory', '$timeout','folderName'];
 
-    function uploadController($modalInstance, $http, Upload, $timeout, folderName) {
+    function uploadController($modalInstance, $http, Upload,commonFactory, $timeout, folderName) {
         var vm = this;
         vm.files = [];
-        vm.defaultFlagUrl = 'http://localhost:29482/app/images/nation/Desert.jpg';
+        var hostUrl = commonFactory.getBaseUrl();
+        vm.defaultFlagUrl = hostUrl+'app/images/nation/Desert.jpg';
         vm.uploadFile = uploadFile;
         vm.cancel = cancel;
 

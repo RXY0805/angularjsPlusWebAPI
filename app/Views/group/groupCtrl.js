@@ -3,13 +3,14 @@
     angular.module("fifa14app")
     .controller("groupController",groupController);
 
-    groupController.$inject = ['groupFactory', 'nationFactory','matchFactory', '$stateParams', '$state','$filter'];
+    groupController.$inject = ['groupFactory', 'nationFactory','matchFactory', 'commonFactory','$stateParams', '$state','$filter'];
 
-    function groupController(groupFactory, nationFactory, matchFactory, $stateParams, $state, $filter) {
+    function groupController(groupFactory, nationFactory, matchFactory, commonFactory,$stateParams, $state, $filter) {
         var vm = this;
         //ng-model
         vm.selectedGroupID = $stateParams.groupid;
-        vm.flagPath = 'http://localhost:29482/app/images/nation/';
+        var hostUrl = commonFactory.getBaseUrl();
+        vm.flagPath = hostUrl + 'app/images/nation/';
         vm.selectedNationID = 0;
         vm.groupList = null;
         vm.nationList = null;
@@ -79,6 +80,7 @@
         function newNation() {
             $state.go('new-nation', {groupid: vm.selectedGroupID, nationid:0 });
         }
+        
     }
 })();
 

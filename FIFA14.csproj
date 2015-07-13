@@ -156,9 +156,10 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\Controllers\fifa14.js" />
-    <Content Include="app\factories\groupFactory.js" />
-    <Content Include="app\factories\matchFactory.js" />
-    <Content Include="app\factories\nationFactory.js" />
+    <Content Include="app\factories\commonFactory.js" />
+    <Content Include="app\Views\group\groupFactory.js" />
+    <Content Include="app\Views\match\matchFactory.js" />
+    <Content Include="app\Views\nation\nationFactory.js" />
     <Content Include="app\Views\about\info.html" />
     <Content Include="app\Views\group\group.html" />
     <Content Include="app\Views\group\groupCtrl.js" />

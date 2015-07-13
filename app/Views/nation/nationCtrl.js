@@ -1,9 +1,9 @@
 ﻿angular.module("fifa14app")
  .controller("nationController", nationController);
 
-nationController.$inject = ['nationFactory', 'groupFactory','matchFactory', '$stateParams', '$location', '$state', '$modal','$filter'];
+nationController.$inject = ['nationFactory', 'groupFactory','matchFactory','commonFactory', '$stateParams', '$location', '$state', '$modal','$filter'];
 
-function nationController(nationFactory, groupFactory,matchFactory, $stateParams, $location, $state, $modal, $filter) {
+function nationController(nationFactory, groupFactory, matchFactory, commonFactory,$stateParams, $location, $state, $modal, $filter) {
     var vm = this;
    
     var nationid = $stateParams.nationid;
@@ -22,8 +22,8 @@ function nationController(nationFactory, groupFactory,matchFactory, $stateParams
     vm.openDeleteDialogue = openDeleteDialogue;
     vm.back = back;
     vm.openUploadDialog = openUploadDialog;
-
-    var path = 'http://localhost:29482/app/images/' + vm.folderName + '/';
+    var hostUrl= commonFactory.getBaseUrl();
+    var path =hostUrl+ 'app/images/' + vm.folderName + '/';
     Initialize();
    
     function Initialize() {

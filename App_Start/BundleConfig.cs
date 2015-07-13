@@ -33,29 +33,15 @@ namespace FIFA14
                 "~/Scripts/ng-file-upload.min.js", 
                 "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
                 "~/Scripts/angular-ui-router.min.js"));
-           
-              //  "~/Scripts/angular-route.js"
 
             bundles.Add(new ScriptBundle("~/bundles/appjs")
                .Include("~/app/app.js",
-                        "~/app/views/nation/nationCtrl.js",
-                         "~/app/views/match/matchCtrl.js",
-                        "~/app/views/group/groupCtrl.js",
-                         "~/app/views/utility/uploadCtrl.js",
-                         "~/app/views/utility/yesnoCtrl.js",
-                            "~/app/views/utility/noticeCtrl.js",
-                        "~/app/factories/groupFactory.js",
-                         "~/app/factories/matchFactory.js",
-                         "~/app/factories/nationFactory.js"
+                        "~/app/factories/*.js",
+                         "~/app/views/nation/*.js",
+                         "~/app/views/match/*.js",
+                        "~/app/views/group/*.js",
+                         "~/app/views/utility/*.js"
                         ));
-            //,"~/app/views/helper/uploadCtrl.js"
-                         
-              //"~/app/Controllers/fifa14.js",
-            //bundles.Add(new StyleBundle("~/bundles/vendor").Include(
-            //         "~/Scripts/angular.js",
-            //         "~/Scripts/angular-route.js"));
-            //bundles.Add(new StyleBundle("~/bundles/applicationjs").Include(
-            //        "~/app/app.js"));
         }
     }
 }

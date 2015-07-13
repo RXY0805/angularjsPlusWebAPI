@@ -23,7 +23,6 @@ function matchController(nationFactory, matchFactory, $stateParams, $filter, $st
             }
         );
     }
-   
 
     function getOppositeTeamList() {
         return nationFactory.getNations().then(function (data) {
