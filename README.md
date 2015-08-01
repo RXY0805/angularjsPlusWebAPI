@@ -17,7 +17,7 @@ Responsibility:
 •	Create angularjs controller, factory and customer filter.
 •	Async call Web API RESTful service by angular factory.
 •	Nest ng-repeat.
-•	Create reusable views and controllers, such as file upload, notice bodialogue.
+•	Create reusable views and controllers, such as file upload, notice board dialogue.
 •	Structuring Angular applications following Johnpapa style.
 	
 
