@@ -34,15 +34,14 @@
                             <div class="row">
                                <br/>
                                 <div ng-repeat="m in current=(vm.matchList | filter:{ MatchID: nationMatch.MatchID} | orderBy:vm.sortBySelectedNationFirst)">
-                                    <div class="col-md-3">
+                                    <div class="col-md-3" ng-if="$even">
                                         {{m.Match.MatchDate| date:'shortDate'}}
                                     </div>
-                                    <div class="col-md-3" ng-if="$even">
-
-                                        <img class="img-circle" width="40" height="30" ng-src="{{vm.flagPath+m.Nation.FlagUrl}}"> <strong>{{m.Score}}</strong>
+                                    <div class="col-md-4" ng-if="$even">
+                                        <img class="img-circle" width="40" height="30" ng-src="{{vm.flagPath+m.Nation.FlagUrl}}"><span style="font-size:x-large;margin:0 10px"> {{m.Score}}</span>
                                     </div>
-                                    <div class="col-md-3" ng-if="$odd">
-                                        <strong>{{m.Score}}</strong><img class="img-circle" width="40" height="30" ng-src="{{vm.flagPath+m.Nation.FlagUrl}}">
+                                    <div class="col-md-4" ng-if="$odd">
+                                        <span style="font-size:x-large;margin:0 10px"> {{m.Score}}</span><img class="img-circle" width="40" height="30" ng-src="{{vm.flagPath+m.Nation.FlagUrl}}">
                                     </div>
                                 </div>
                             </div>
