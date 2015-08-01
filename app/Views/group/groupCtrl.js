@@ -22,6 +22,8 @@
         vm.showDetail = showDetail;
         vm.nationEdit = nationEdit;
         vm.groupFilterFn = groupFilterFn;
+        vm.sortBySelectedNationFirst = sortBySelectedNationFirst;
+      
        
         vm.newMatch = newMatch;
         vm.newNation = newNation;
@@ -67,9 +69,13 @@
         }
 
         function groupFilterFn(n) {
-            //$scope.data.nations={}
             return vm.selectedGroupID == null || n.GroupID == vm.selectedGroupID;
         }
+
+        function sortBySelectedNationFirst(m) {
+            return m.NationID !== vm.selectedNationID;
+        }
+      
         function nationEdit(id) {
             $state.go('edit-nation', { groupid: vm.selectedGroupID, nationid: id });
         }
